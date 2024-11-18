@@ -38,3 +38,49 @@ void print_bits(void* ptr, int num_bytes) {
     printf("\n");
 }
 
+int check_bit(int value, int bit){
+    int mask = 1 << bit;
+
+    if(value & mask){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+int count_bits(int value){
+    int count = 0;
+    while(value){
+        value = value & (value - 1);
+        count++;
+    }
+
+    return count;
+}
+
+int bit_parity(int value){
+    int count = 0;
+
+    while(value){
+        value = value & (value - 1);
+        count++;
+    }
+    return count%2;
+}
+
+int flip_bit(int value, int bit){
+    int mask = 1 << bit;
+    value = value ^ mask;
+    return value;
+}
+
+unsigned int simple_checksum(char* string){
+     unsigned int checksum = 0;
+     while (*string) {
+        checksum ^= (unsigned int)(*string); 
+        string++; 
+    }
+
+    return checksum;
+}
