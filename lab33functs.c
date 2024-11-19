@@ -39,7 +39,7 @@ void print_bits(void* ptr, int num_bytes) {
 }
 
 int check_bit(int value, int bit){
-    int mask = 1 << bit;
+    int mask = 1  << bit;
 
     if(value & mask){
         return 1;
